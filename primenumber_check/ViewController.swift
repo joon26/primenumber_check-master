@@ -9,9 +9,6 @@
 import UIKit
 
 class ViewController: UIViewController,UITextFieldDelegate {
-
-    
-    
     @IBOutlet weak var txt: UITextField!
     @IBOutlet weak var lbl: UILabel!
     
@@ -19,27 +16,21 @@ class ViewController: UIViewController,UITextFieldDelegate {
         super.viewDidLoad()
  
         txt.delegate = self
-        txt.placeholder = "숫자입력"
-    
-        // Do any additional setup after loading the view, typically from a nib.
+        txt.placeholder = "숫자를 입력하세요."
+
     }
 
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
     }
 
-   
     @IBAction func reset(_ sender: Any) {
         txt.text = ""
         lbl.text = ""
     }
-    
  
     @IBAction func bt(_ sender: Any) {
-
-        
         let number = Int(txt.text!)
         var isPrime = true
         
@@ -56,20 +47,15 @@ class ViewController: UIViewController,UITextFieldDelegate {
             }
         }
         if isPrime == true{
-            lbl.text = ("소수이다.")
+            lbl.text = ("소수입니다.")
         }else{
-            lbl.text = ("소수가아니다.")
+            lbl.text = ("소수가 아닙니다.")
         }
-        
-        
         txt.resignFirstResponder()
-        
     }
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         txt.resignFirstResponder()
         return true
     }
-    
 }
 
